@@ -39,7 +39,6 @@
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:text="Exchange"
-                        android:textSize="16sp"
                         android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent" app:textAllCaps="true"/>
 
@@ -47,6 +46,8 @@
                         android:id="@+id/edt_exchange"
                         style="@style/TextAppearance.AppCompat.Display2"
                         android:text="3.0080"
+                        android:inputType="numberDecimal"
+                        android:digits="@string/numeric_digits"
                         android:layout_width="190dp"
                         android:layout_marginTop="16dp"
                         android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/v0"
@@ -72,7 +73,7 @@
         <com.google.android.material.card.MaterialCardView
                 android:layout_below="@id/top"
                 android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="@dimen/defaultRadius"
                 app:cardBackgroundColor="#32000000">
@@ -89,7 +90,6 @@
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:text="Receive"
-                        android:textSize="16sp"
                         android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent" app:textAllCaps="true"/>
 
@@ -97,6 +97,8 @@
                         android:id="@+id/edt_"
                         style="@style/TextAppearance.AppCompat.Display2"
                         android:text="3.0080"
+                        android:inputType="numberDecimal"
+                        android:digits="@string/numeric_digits"
                         android:layout_width="190dp"
                         android:layout_marginTop="16dp"
                         android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/v1"
@@ -121,7 +123,7 @@
 
         <com.google.android.material.button.MaterialButton
                 android:layout_width="120dp"
-                app:cornerRadius="16dp"
+                app:cornerRadius="@dimen/defaultRadius"
                 app:icon="@drawable/arrow_up_down"
                 app:iconSize="20dp"
                 app:elevation="16dp"
