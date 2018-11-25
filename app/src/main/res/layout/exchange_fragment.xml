@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -13,13 +13,16 @@
         android:layout_height="match_parent"
         tools:context=".ui.exchange.ExchangeFragment">
 
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/v00"
+    android:layout_alignParentTop="true">
 
         <com.google.android.material.card.MaterialCardView
                 android:id="@+id/top"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="@dimen/defaultRadius"
                 app:cardPreventCornerOverlap="false"
                 app:cardUseCompatPadding="false"
                 app:cardBackgroundColor="#32000000">
@@ -71,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_height="170dp"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="@dimen/defaultRadius"
                 app:cardBackgroundColor="#32000000">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -128,5 +131,15 @@
                 android:layout_height="50dp" app:backgroundTint="@color/colorPrimary"/>
     </RelativeLayout>
 
+    <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="exchange"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/v00"
+            app:cornerRadius="8dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"/>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
