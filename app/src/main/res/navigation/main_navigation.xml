@@ -6,4 +6,8 @@
 
     <fragment android:id="@+id/mainFragment" android:name="com.pedromassango.crypto.ui.main.MainFragment"
               android:label="main_fragment" tools:layout="@layout/main_fragment"/>
+    <fragment android:id="@+id/settingsFragment" android:name="com.pedromassango.crypto.ui.settings.SettingsFragment"
+              android:label="settings_fragment" tools:layout="@layout/settings_fragment"/>
+    <fragment android:id="@+id/exchangeFragment" android:name="com.pedromassango.crypto.ui.exchange.ExchangeFragment"
+              android:label="exchange_fragment" tools:layout="@layout/exchange_fragment"/>
 </navigation>

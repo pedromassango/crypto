@@ -18,6 +18,9 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_alignParentBottom="true"
+            app:menu="@menu/navigation_menu"
+            app:itemIconTint="@drawable/navigation_item_background"
+            app:itemTextColor="@drawable/navigation_item_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 </RelativeLayout>
