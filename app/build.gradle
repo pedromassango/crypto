@@ -33,4 +33,5 @@ dependencies {
     // Navigation Component
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha07'
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0-alpha07"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
