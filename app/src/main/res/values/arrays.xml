@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="currency_code_list">
+        <item>USD</item>
+        <item>JPY</item>
+        <item>CNY</item>
+        <item>SGD</item>
+        <item>HKD</item>
+        <item>CAD</item>
+        <item>NZD</item>
+        <item>AUD</item>
+        <item>CLP</item>
+        <item>GBP</item>
+        <item>DKK</item>
+        <item>SEK</item>
+        <item>ISK</item>
+        <item>CHF</item>
+        <item>BRL</item>
+        <item>EUR</item>
+        <item>RUB</item>
+        <item>PLN</item>
+        <item>THB</item>
+        <item>KRW</item>
+        <item>TWD</item>
+    </string-array>
+</resources>
