@@ -37,6 +37,10 @@ dependencies {
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha07'
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0-alpha07"
 
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1'
+
     // Tests
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'

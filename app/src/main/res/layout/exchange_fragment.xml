@@ -61,7 +61,7 @@
                         android:id="@+id/spinner_exchange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:layout_marginTop="42dp"
-                        android:layout_marginEnd="16dp" app:layout_constraintTop_toBottomOf="@id/v0"
+                        android:layout_marginEnd="24dp" app:layout_constraintTop_toBottomOf="@id/v0"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintVertical_bias="0.0"/>
@@ -112,10 +112,17 @@
                         android:id="@+id/spinner_receive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:layout_marginTop="42dp"
-                        android:layout_marginEnd="16dp" app:layout_constraintTop_toBottomOf="@id/v1"
+                        android:layout_marginEnd="24dp" app:layout_constraintTop_toBottomOf="@id/v1"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintVertical_bias="0.0"/>
+                <ProgressBar
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/progress_bar"
+                        app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                        android:visibility="gone" tools:visibility="visible"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
