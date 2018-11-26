@@ -9,6 +9,8 @@ object DependenciesModules {
 
     val appModule = module{
 
+        //factory { . }
+
         viewModel{ MainViewModel() }
         viewModel { ExchangeViewModel() }
     }
