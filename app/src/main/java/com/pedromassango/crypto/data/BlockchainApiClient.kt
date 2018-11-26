@@ -14,7 +14,7 @@ object BlockchainApiClient{
 
     private val okHttClient = OkHttpClient.Builder()
         .readTimeout(20, TimeUnit.SECONDS)
-        .connectTimeout(200, TimeUnit.SECONDS)
+        .connectTimeout(20, TimeUnit.SECONDS)
         .build()
 
      private val builder = Retrofit.Builder()
