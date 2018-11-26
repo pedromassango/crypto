@@ -4,6 +4,6 @@
     <string name="exchange">Exchange</string>
     <string name="settings">Settings</string>
     <string name="invert">Invert</string>
-    <string name="numeric_digits">01234567890.</string>
+    <string name="numeric_digits">01234567890</string>
     <string name="market_price">Market Price (USD)</string>
 </resources>

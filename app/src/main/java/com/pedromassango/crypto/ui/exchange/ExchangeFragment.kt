@@ -34,7 +34,6 @@ class ExchangeFragment: Fragment() {
         })
         exchangeViewModel.exchangeResult.observe(this, Observer {
             tv_exchange_result.text = it.toString()
-
             handleComponentsVisibility( showProgress = false)
         })
     }
@@ -43,8 +42,11 @@ class ExchangeFragment: Fragment() {
         val valueToExchange = edt_exchange.text.toString()
         val currency = spinner_currency.selectedItem.toString()
 
-        handleComponentsVisibility( showProgress = true)
+        // check field
+        if(valueToExchange.trim().isEmpty())
+            return
 
+        handleComponentsVisibility( showProgress = true)
         exchangeViewModel.onExchangeClicked(currency, valueToExchange)
     }
 
