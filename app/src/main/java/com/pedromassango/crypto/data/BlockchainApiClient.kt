@@ -1,5 +1,6 @@
 package com.pedromassango.crypto.data
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -9,15 +10,16 @@ import retrofit2.http.Query
 
 object BlockchainApiClient{
 
-     val apiClient = Retrofit.Builder()
+     private val builder = Retrofit.Builder()
          .baseUrl("https://blockchain.info/")
          .addConverterFactory(GsonConverterFactory.create())
+         .addCallAdapterFactory(CoroutineCallAdapterFactory())
          .build()
 
-
+    val apiService = builder.create(BlockchainService::class.java)
 }
 
-interface BlockchainClient{
+interface BlockchainService{
 
     @POST("tobtc")
     fun exchangeToBtc(
