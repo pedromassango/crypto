@@ -25,13 +25,20 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // design
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    // LiveData + ViewModel
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
     // Navigation Component
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha07'
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0-alpha07"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    // Tests
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }
