@@ -134,7 +134,7 @@
                 app:iconTint="@color/colorWhite"
                 android:text="@string/invert"
                 android:layout_centerInParent="true"
-                android:layout_height="50dp" app:backgroundTint="@color/colorPrimary"/>
+                android:layout_height="50dp" app:backgroundTint="@color/colorPrimary" android:id="@+id/btn_invert"/>
     </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton

@@ -29,13 +29,12 @@ class ExchangeFragment: Fragment() {
 
         exchangeViewModel.error.observe(this, Observer {
             Snackbar.make(view!!, it, Snackbar.LENGTH_LONG).show()
+            handleComponentsVisibility( showProgress = false)
         })
         exchangeViewModel.exchangeResult.observe(this, Observer {
             tv_exchange_result.text = it.toString()
 
-            edt_exchange.isEnabled = true
-            btn_exchange.isEnabled = true
-            progress_bar.visibility = View.GONE
+            handleComponentsVisibility( showProgress = false)
         })
     }
 
@@ -43,10 +42,17 @@ class ExchangeFragment: Fragment() {
         val valueToExchange = edt_exchange.text.toString()
         val currency = spinner_currency.selectedItem.toString()
 
-        edt_exchange.isEnabled = false
-        btn_exchange.isEnabled = false
-        progress_bar.visibility = View.VISIBLE
+        handleComponentsVisibility( showProgress = true)
 
         exchangeViewModel.onExchangeClicked(currency, valueToExchange)
+    }
+
+    private fun handleComponentsVisibility(showProgress: Boolean) {
+        edt_exchange.isEnabled = !showProgress
+        btn_exchange.isEnabled = !showProgress
+        btn_invert.isClickable = !showProgress
+        spinner_currency.isEnabled = !showProgress
+
+        progress_bar.visibility = if(showProgress) View.VISIBLE else View.GONE
     }
 }
