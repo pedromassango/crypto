@@ -48,6 +48,7 @@
                         android:hint="0"
                         android:maxLines="1"
                         android:inputType="numberDecimal"
+                        android:imeOptions="actionDone"
                         android:digits="@string/numeric_digits"
                         android:layout_width="190dp"
                         android:layout_marginTop="16dp"
