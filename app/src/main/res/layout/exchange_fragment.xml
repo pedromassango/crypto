@@ -94,14 +94,14 @@
                         app:layout_constraintStart_toStartOf="parent" app:textAllCaps="true"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/edt_"
+                        android:id="@+id/tv_exchange_result"
                         style="@style/TextAppearance.AppCompat.Display2"
                         android:text="3.0080"
                         android:layout_width="190dp"
                         android:layout_marginTop="16dp"
                         android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/v1"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"/>
+                />
 
                 <!--<androidx.appcompat.widget.AppCompatSpinner
                         android:spinnerMode="dropdown"
