@@ -1,5 +1,6 @@
 package com.pedromassango.crypto.data
 
+import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
@@ -20,7 +21,11 @@ object BlockchainApiClient{
 
      private val builder = Retrofit.Builder()
          .baseUrl("https://blockchain.info/")
-         .addConverterFactory(GsonConverterFactory.create())
+         .addConverterFactory(GsonConverterFactory.create(
+             GsonBuilder()
+             .setLenient()
+             .create())
+         )
          .addCallAdapterFactory(CoroutineCallAdapterFactory())
          .client(okHttClient)
          .build()
