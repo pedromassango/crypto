@@ -28,18 +28,23 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         mainViewModel.error.observe(this, Observer {
+            handleProgress(false)
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
         mainViewModel.marketStats.observe(this, Observer {
-            progress_main.visibility = View.GONE
+            handleProgress(false)
 
             with(it) {
                 tv_market_price.text = marketPriceUsd.toString()
             }
         })
 
-        progress_main.visibility = View.VISIBLE
+        handleProgress(true)
         mainViewModel.onLoadData()
+    }
+
+    private fun handleProgress(show: Boolean) {
+        progress_main.visibility = if(show) View.VISIBLE else View.GONE
     }
 
 }

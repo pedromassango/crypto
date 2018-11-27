@@ -17,8 +17,7 @@ class MainViewModel : ViewModel() {
     fun onLoadData() {
 
         GlobalScope.launch(Dispatchers.Main) {
-            val response =
-                    apiService.blockchainStats().await()
+            val response = apiService.blockchainStats().await()
 
             if(response.isSuccessful){
                 val data = response.body()
