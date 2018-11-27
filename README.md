@@ -8,3 +8,7 @@ Crypto is a currency app to converter coins and to see market stats.
 - [x] Jetpack: ViewModel + LiveData
 - [x] Koin for Dependency Injection
 - [x] Kotlin Coroutines
+
+### What is currently done?
+- [x] Convert currency to BTC
+
