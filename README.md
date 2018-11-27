@@ -4,7 +4,7 @@ Crypto is a currency app to converter coins and to see market stats.
 
 ### Screenshots Available (adding as the project grow)
 
-<img src="/screenshots/s1.png" width="280" height="480">
+<img src="/screenshots/s1.png" width="270" height="480">
 
 ### What we're using?
 - [x] Material Components (UI)
