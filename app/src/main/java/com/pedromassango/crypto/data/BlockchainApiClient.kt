@@ -6,6 +6,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
@@ -34,4 +35,7 @@ interface BlockchainService{
         @Query("currency") currency: String,
         @Query("value") valueToConvert: String
     ): Deferred<Response<Double>>
+
+    @GET("stats")
+    fun blockchainStats(): Deferred<Response<BlockchainStats>>
 }
