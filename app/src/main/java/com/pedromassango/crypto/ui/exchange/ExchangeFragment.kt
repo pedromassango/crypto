@@ -32,7 +32,7 @@ class ExchangeFragment: Fragment() {
             handleComponentsVisibility( showProgress = false)
         })
         exchangeViewModel.exchangeResult.observe(this, Observer {
-            tv_exchange_result.text = it.toString()
+            tv_exchange_result?.text = it.toString()
             handleComponentsVisibility( showProgress = false)
         })
     }
@@ -50,11 +50,11 @@ class ExchangeFragment: Fragment() {
     }
 
     private fun handleComponentsVisibility(showProgress: Boolean) {
-        edt_exchange.isEnabled = !showProgress
-        btn_exchange.isEnabled = !showProgress
-        btn_invert.isClickable = !showProgress
-        spinner_currency.isEnabled = !showProgress
+        edt_exchange?.isEnabled = !showProgress
+        btn_exchange?.isEnabled = !showProgress
+        btn_invert?.isClickable = !showProgress
+        spinner_currency?.isEnabled = !showProgress
 
-        progress_bar.visibility = if(showProgress) View.VISIBLE else View.GONE
+        progress_bar?.visibility = if(showProgress) View.VISIBLE else View.GONE
     }
 }

@@ -44,7 +44,7 @@ class MainFragment : Fragment() {
     }
 
     private fun handleProgress(show: Boolean) {
-        progress_main.visibility = if(show) View.VISIBLE else View.GONE
+        progress_main?.visibility = if(show) View.VISIBLE else View.GONE
     }
 
 }
