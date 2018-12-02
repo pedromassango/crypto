@@ -44,8 +44,19 @@ object RemoteApiClients{
          .client(okHttClient)
          .build()
 
+    /**
+     * Builder to access the [https://marketdata.wavesplatform.com/] info
+     */
+    private val marketNodeBuilder = Retrofit.Builder()
+         .baseUrl("https://nodes.wavesplatform.com")
+         .addConverterFactory(gsonConverter)
+         .addCallAdapterFactory(coroutineAdapter)
+         .client(okHttClient)
+         .build()
+
     val blockchainService = blockchainBuilder.create(BlockchainService::class.java)
     val marketDataService = marketDataBuilder.create(MarketDataService::class.java)
+    val marketNodeService = marketNodeBuilder.create(MarketNodeService::class.java)
 }
 
 /**
@@ -85,4 +96,18 @@ interface MarketDataService{
      */
     @GET("symbols")
     fun getSymbols(): Deferred<Response<List<Symbol>>>
+}
+
+/**
+ * Interface to access the not services
+ */
+interface MarketNodeService{
+
+    /**
+     * Get symbol details by assetId
+     *
+     * @param assetId the id to load details from
+     */
+    @GET("assets/details/{assetId}")
+    fun getDetailsByAssetId(assetId: String): Deferred<Response<Symbol>>
 }

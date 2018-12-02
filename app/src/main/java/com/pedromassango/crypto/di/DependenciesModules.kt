@@ -14,9 +14,10 @@ object DependenciesModules {
 
         factory { RemoteApiClients.blockchainService }
         factory { RemoteApiClients.marketDataService }
+        factory { RemoteApiClients.marketNodeService }
 
         factory { BlockchainApiRepository( get()) }
-        factory { MarketDataApiRepository( get()) }
+        factory { MarketDataApiRepository( get(), get()) }
 
         viewModel{ MainViewModel(get()) }
         viewModel { ExchangeViewModel( get()) }
