@@ -2,7 +2,7 @@ package com.pedromassango.crypto.data
 
 import com.google.gson.annotations.SerializedName
 
-data class BlockchainStats(
+class BlockchainStats(
     @SerializedName("timestamp") val timestamp: Double,
     @SerializedName("market_price_usd") val marketPriceUsd: Double,
     @SerializedName("hash_rate") val hashRate: Double,
