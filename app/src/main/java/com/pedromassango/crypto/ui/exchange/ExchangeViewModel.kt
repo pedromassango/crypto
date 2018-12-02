@@ -2,14 +2,15 @@ package com.pedromassango.crypto.ui.exchange
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.pedromassango.crypto.data.BlockchainApiRepository
 import com.pedromassango.crypto.data.RemoteApiClients
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class ExchangeViewModel: ViewModel() {
+class ExchangeViewModel(
+    private val blockchainApiRepository: BlockchainApiRepository): ViewModel() {
 
-    private val blockchainService = RemoteApiClients.blockchainService
     val error = MutableLiveData<String>()
     val exchangeResult = MutableLiveData<Double>()
 
@@ -18,13 +19,11 @@ class ExchangeViewModel: ViewModel() {
 
         GlobalScope.launch(Dispatchers.Main){
             try {
-                val response = blockchainService.exchangeToBtc(currency, valueToExchange).await()
+                val result = blockchainApiRepository.doExchange(currency, valueToExchange)
 
-                when(response.isSuccessful) {
-                    true -> response.body().also { data ->
-                        exchangeResult.postValue(data)
-                    }
-                    else -> error.postValue(response.message())
+                when(result != null) {
+                    true -> exchangeResult.postValue(result)
+                    else -> error.postValue("Unable to access the server, try again later!")
                 }
             } catch(e: Exception){
                 error.postValue("Please check your Internet")

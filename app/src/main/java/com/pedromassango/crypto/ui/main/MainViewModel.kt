@@ -2,23 +2,19 @@ package com.pedromassango.crypto.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.pedromassango.crypto.data.RemoteApiClients
 import com.pedromassango.crypto.data.BlockchainStats
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.pedromassango.crypto.data.MarketDataApiRepository
 
-class MainViewModel : ViewModel() {
+class MainViewModel(
+    private val marketDataApiRepository: MarketDataApiRepository) : ViewModel() {
 
-    private val blockchainService = RemoteApiClients.blockchainService
-    private val marketDataService = RemoteApiClients.marketDataService
     val error = MutableLiveData<String>()
     val marketStats = MutableLiveData<BlockchainStats>()
 
     fun onLoadData() {
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val response = apiService.blockchainStats().await()
+        /*GlobalScope.launch(Dispatchers.Main) {
+            val response = blockchainService.blockchainStats().await()
 
             if(response.isSuccessful){
                 val data = response.body()
@@ -27,6 +23,6 @@ class MainViewModel : ViewModel() {
             }else{
                 error.postValue( response.message())
             }
-        }
+        }*/
     }
 }

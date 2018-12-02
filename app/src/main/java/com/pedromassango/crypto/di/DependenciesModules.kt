@@ -1,5 +1,8 @@
 package com.pedromassango.crypto.di
 
+import com.pedromassango.crypto.data.BlockchainApiRepository
+import com.pedromassango.crypto.data.MarketDataApiRepository
+import com.pedromassango.crypto.data.RemoteApiClients
 import com.pedromassango.crypto.ui.exchange.ExchangeViewModel
 import com.pedromassango.crypto.ui.main.MainViewModel
 import org.koin.android.viewmodel.ext.koin.viewModel
@@ -9,9 +12,13 @@ object DependenciesModules {
 
     val appModule = module{
 
-        //factory { . }
+        factory { RemoteApiClients.blockchainService }
+        factory { RemoteApiClients.marketDataService }
 
-        viewModel{ MainViewModel() }
+        factory { BlockchainApiRepository( get()) }
+        factory { MarketDataApiRepository( get()) }
+
+        viewModel{ MainViewModel(get()) }
         viewModel { ExchangeViewModel() }
     }
 }

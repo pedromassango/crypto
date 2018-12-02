@@ -2,8 +2,7 @@ package com.pedromassango.crypto.data
 
 import android.util.Log
 
-class RemoteRepository(
-    private val blockchainService: BlockchainService,
+class MarketDataApiRepository(
     private val marketDataService: MarketDataService) {
 
     private val cacheSymbols: List<Symbol>? = null
