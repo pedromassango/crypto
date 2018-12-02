@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    private val apiService = BlockchainApiClient.apiService
+    private val apiService = BlockchainApiClient.blockchainService
     val error = MutableLiveData<String>()
     val marketStats = MutableLiveData<BlockchainStats>()
 

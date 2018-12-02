@@ -1,6 +1,7 @@
 package com.pedromassango.crypto.data
 
 import com.google.gson.annotations.SerializedName
+import com.google.gson.annotations.Expose
 
 class BlockchainStats(
     @SerializedName("timestamp") val timestamp: Double,
@@ -23,4 +24,9 @@ class BlockchainStats(
     @SerializedName("total_btc_sent") val totalBtcSent: Double,
     @SerializedName("trade_volume_btc") val tradeVolumeBtc: Double,
     @SerializedName("trade_volume_usd") val tradeVolumeUsd: Double
+)
+
+class Symbol (
+    @SerializedName("symbol") var symbol: String?,
+    @SerializedName("assetID") var assetID: String? = null
 )

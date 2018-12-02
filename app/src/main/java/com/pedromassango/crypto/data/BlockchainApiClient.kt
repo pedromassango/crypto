@@ -15,25 +15,42 @@ import java.util.concurrent.TimeUnit
 
 object BlockchainApiClient{
 
+    private val coroutineAdapter = CoroutineCallAdapterFactory()
+    private val gsonConverter = GsonConverterFactory.create(GsonBuilder()
+        .setLenient()
+        .create())
     private val okHttClient = OkHttpClient.Builder()
         .readTimeout(20, TimeUnit.SECONDS)
         .connectTimeout(20, TimeUnit.SECONDS)
         .build()
 
-     private val builder = Retrofit.Builder()
+    /**
+     * Builder to access the [https://blockchain.info/] info
+     */
+     private val blockchainBuilder = Retrofit.Builder()
          .baseUrl("https://blockchain.info/")
-         .addConverterFactory(GsonConverterFactory.create(
-             GsonBuilder()
-             .setLenient()
-             .create())
-         )
-         .addCallAdapterFactory(CoroutineCallAdapterFactory())
+         .addConverterFactory(gsonConverter)
+         .addCallAdapterFactory(coroutineAdapter)
          .client(okHttClient)
          .build()
 
-    val apiService = builder.create(BlockchainService::class.java)
+    /**
+     * Builder to access the [https://marketdata.wavesplatform.com/] info
+     */
+    private val marketDataBuilder = Retrofit.Builder()
+         .baseUrl("https://marketdata.wavesplatform.com/api/")
+         .addConverterFactory(gsonConverter)
+         .addCallAdapterFactory(coroutineAdapter)
+         .client(okHttClient)
+         .build()
+
+    val blockchainService = blockchainBuilder.create(BlockchainService::class.java)
+    val marketDataService = marketDataBuilder.create(MarketDataService::class.java)
 }
 
+/**
+ * Interface to access the [https://blockchain.info/] services
+ */
 interface BlockchainService{
 
     /**
@@ -50,8 +67,22 @@ interface BlockchainService{
 
     /**
      * Get the bitcoin state info
+     * TODO: getting: com.google.gson.JsonSyntaxException:
+     * TODO: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
      */
     @Headers("Content-Type: application/json")
     @GET("stats")
     fun blockchainStats(): Deferred<Response<BlockchainStats>>
+}
+
+/**
+ * Interface to access the [https://marketdata.wavesplatform.com/] services
+ */
+interface MarketDataService{
+
+    /**
+     * Get all symbols
+     */
+    @GET("symbols")
+    fun getSymbols(): Deferred<Response<List<Symbol>>>
 }

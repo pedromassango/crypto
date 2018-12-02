@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class ExchangeViewModel: ViewModel() {
 
-    private val blockchainService = BlockchainApiClient.apiService
+    private val blockchainService = BlockchainApiClient.blockchainService
     val error = MutableLiveData<String>()
     val exchangeResult = MutableLiveData<Double>()
 
