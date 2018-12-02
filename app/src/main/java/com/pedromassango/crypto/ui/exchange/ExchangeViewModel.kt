@@ -2,14 +2,14 @@ package com.pedromassango.crypto.ui.exchange
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.pedromassango.crypto.data.BlockchainApiClient
+import com.pedromassango.crypto.data.RemoteApiClients
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class ExchangeViewModel: ViewModel() {
 
-    private val blockchainService = BlockchainApiClient.blockchainService
+    private val blockchainService = RemoteApiClients.blockchainService
     val error = MutableLiveData<String>()
     val exchangeResult = MutableLiveData<Double>()
 

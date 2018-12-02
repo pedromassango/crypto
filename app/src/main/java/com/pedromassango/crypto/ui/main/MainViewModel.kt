@@ -2,7 +2,7 @@ package com.pedromassango.crypto.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.pedromassango.crypto.data.BlockchainApiClient
+import com.pedromassango.crypto.data.RemoteApiClients
 import com.pedromassango.crypto.data.BlockchainStats
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -10,7 +10,8 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    private val apiService = BlockchainApiClient.blockchainService
+    private val blockchainService = RemoteApiClients.blockchainService
+    private val marketDataService = RemoteApiClients.marketDataService
     val error = MutableLiveData<String>()
     val marketStats = MutableLiveData<BlockchainStats>()
 

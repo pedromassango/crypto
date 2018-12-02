@@ -13,7 +13,7 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
-object BlockchainApiClient{
+object RemoteApiClients{
 
     private val coroutineAdapter = CoroutineCallAdapterFactory()
     private val gsonConverter = GsonConverterFactory.create(GsonBuilder()
