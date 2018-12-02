@@ -6,8 +6,15 @@ class RemoteRepository(
     private val blockchainService: BlockchainService,
     private val marketDataService: MarketDataService) {
 
+    private val cacheSymbols: List<Symbol>? = null
 
     suspend fun getSymbols(): List<Symbol>? {
+
+        // Return data from cache if available
+        cacheSymbols?.let {
+            if(it.isNotEmpty()) return cacheSymbols
+        }
+
         return try {
             val response = marketDataService.getSymbols().await()
 
