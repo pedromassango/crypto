@@ -11,6 +11,7 @@ import com.google.android.material.chip.Chip
 import com.pedromassango.crypto.R
 import com.pedromassango.crypto.data.Symbol
 import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.main_fragment.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
@@ -26,6 +27,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return with(inflater.inflate(R.layout.main_fragment, container, false)) {
+            recycler_view.adapter = adapter
             this
         }
     }
