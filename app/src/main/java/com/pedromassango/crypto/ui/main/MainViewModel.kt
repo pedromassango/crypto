@@ -4,25 +4,45 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.pedromassango.crypto.data.BlockchainStats
 import com.pedromassango.crypto.data.MarketDataApiRepository
+import com.pedromassango.crypto.data.Symbol
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class MainViewModel(
-    private val marketDataApiRepository: MarketDataApiRepository) : ViewModel() {
+    private val marketDataApiRepository: MarketDataApiRepository
+) : ViewModel() {
 
     val error = MutableLiveData<String>()
-    val marketStats = MutableLiveData<BlockchainStats>()
+    val symbols = MutableLiveData<List<Symbol>>()
+    //val marketStats = MutableLiveData<BlockchainStats>()
 
-    fun onLoadData() {
+    fun onLoadSymbols() {
 
-        /*GlobalScope.launch(Dispatchers.Main) {
-            val response = blockchainService.blockchainStats().await()
+        GlobalScope.launch {
+            val result = marketDataApiRepository.getSymbols()
 
-            if(response.isSuccessful){
-                val data = response.body()
-                // release the result
-                marketStats.postValue(data)
-            }else{
-                error.postValue( response.message())
+            if (result == null) {
+                error.postValue("Internet Error!")
+                return@launch
             }
-        }*/
+
+            symbols.postValue(result)
+        }
+
+    }
+
+    fun onLoadSymbolDetails(assetId: String): MutableLiveData<Symbol> {
+        return MutableLiveData<Symbol>().apply {
+            GlobalScope.launch {
+                try {
+                    val result = marketDataApiRepository.getSymbolDetails(assetId)
+                    postValue(result)
+                }catch(e: Exception){
+                    e.printStackTrace()
+                    error.postValue("Internet Error")
+                }
+            }
+        }
     }
 }

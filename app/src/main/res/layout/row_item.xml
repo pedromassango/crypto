@@ -24,11 +24,11 @@
             android:padding="16sp"
             android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/v0"
+            android:id="@+id/tv_details"
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Exchange"
+            android:text="Loading details..."
             android:textStyle="bold"
             app:textAllCaps="true" />
 
