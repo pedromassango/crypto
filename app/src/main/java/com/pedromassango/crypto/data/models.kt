@@ -26,7 +26,7 @@ class BlockchainStats(
     @SerializedName("trade_volume_usd") val tradeVolumeUsd: Double
 )
 
-data class Symbol (
+class Symbol (
     @SerializedName("symbol") var symbol: String?,
     @SerializedName("assetID") var assetID: String? = null,
     var issuer: String = "",
@@ -37,7 +37,7 @@ data class Symbol (
     var reissuable: String = "",
     var quantity: String = ""
 ){
-    override fun toString(): String {
+    fun append(): String {
         return "$assetID\n$symbol\n$name\n$description"
     }
 }

@@ -13,7 +13,7 @@ class SymbolHolder(val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(symbol: Symbol) {
         with(view){
             symbol.name?.let{
-                tv_details.text = symbol.toString()
+                tv_details.text = symbol.append()
             }
         }
     }
@@ -24,7 +24,7 @@ class SymbolsAdapter(
 ) : RecyclerView.Adapter<SymbolHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SymbolHolder {
-        return SymbolHolder(LayoutInflater.from(parent.context).inflate(R.layut.row_item, parent, false))
+        return SymbolHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_item, parent, false))
     }
 
     override fun getItemCount(): Int = data.size
@@ -41,7 +41,7 @@ class SymbolsAdapter(
 
     fun update(symbol: Symbol){
         try {
-            val item = data.first { it.assetID == symbol.assetID }
+            val item = data.find { it.assetID == symbol.assetID }
             val index = data.indexOf(item)
             notifyItemChanged(index, symbol)
         }catch (e: NoSuchElementException){

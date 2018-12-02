@@ -7,10 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
 object RemoteApiClients{
@@ -109,5 +106,5 @@ interface MarketNodeService{
      * @param assetId the id to load details from
      */
     @GET("assets/details/{assetId}")
-    fun getDetailsByAssetId(assetId: String): Deferred<Response<Symbol>>
+    fun getDetailsByAssetId(@Path("assetId") assetId: String): Deferred<Response<Symbol>>
 }

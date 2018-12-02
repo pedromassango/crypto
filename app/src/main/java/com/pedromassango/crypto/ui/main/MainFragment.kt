@@ -51,9 +51,11 @@ class MainFragment : Fragment() {
 
     private fun loadDetailsAnd(data: List<Symbol>?) {
         data?.let {
-            it.forEach {
-                mainViewModel.onLoadSymbolDetails(it.assetID!!).observe(this, Observer{ updatedSymbol ->
-                    adapter.update(updatedSymbol)
+            it.forEach {item ->
+                mainViewModel.onLoadSymbolDetails(item.assetID!!).observe(this, Observer{ it ->
+                    it?.let {updatedSymbol ->
+                        adapter.update(updatedSymbol)
+                    }
                 })
             }
         }
