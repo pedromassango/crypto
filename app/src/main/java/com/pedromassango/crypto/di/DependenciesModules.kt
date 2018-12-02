@@ -19,6 +19,6 @@ object DependenciesModules {
         factory { MarketDataApiRepository( get()) }
 
         viewModel{ MainViewModel(get()) }
-        viewModel { ExchangeViewModel() }
+        viewModel { ExchangeViewModel( get()) }
     }
 }
