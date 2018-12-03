@@ -29,8 +29,9 @@ class MarketDataApiRepository(
         }
     }
 
-    suspend fun getSymbolDetails(assetId: String): Symbol? = try {
-        val result = marketNodeService.getDetailsByAssetId(assetId).await()
+    suspend fun getSymbolDetails(assetId: String): SymbolDetails? = try {
+        val request = marketNodeService.getDetailsByAssetId(assetId)
+        val result = request.await()
         result.body()
     } catch (e: Exception) {
         e.printStackTrace()

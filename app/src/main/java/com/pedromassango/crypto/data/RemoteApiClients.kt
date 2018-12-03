@@ -106,5 +106,5 @@ interface MarketNodeService{
      * @param assetId the id to load details from
      */
     @GET("assets/details/{assetId}")
-    fun getDetailsByAssetId(@Path("assetId") assetId: String): Deferred<Response<Symbol>>
+    fun getDetailsByAssetId(@Path("assetId") assetId: String): Deferred<Response<SymbolDetails>>
 }

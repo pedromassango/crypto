@@ -1,5 +1,6 @@
 package com.pedromassango.crypto.data
 
+import android.util.Log
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
@@ -26,18 +27,43 @@ class BlockchainStats(
     @SerializedName("trade_volume_usd") val tradeVolumeUsd: Double
 )
 
-class Symbol (
+class Symbol(
     @SerializedName("symbol") var symbol: String?,
-    @SerializedName("assetID") var assetID: String? = null,
-    var issuer: String = "",
-    var issueDate: String = "",
-    @SerializedName("name")  var name: String? = null,
-    @SerializedName("description") var description: String = "",
-    var decimals: String = "",
-    var reissuable: String = "",
-    var quantity: String = ""
-){
+    @SerializedName("assetID") var assetID: String? = null
+)
+
+class SymbolDetails(
+
+    @SerializedName("assetId")
+    @Expose var assetId: String? = null,
+    @SerializedName("issueHeight")
+    @Expose var issueHeight: Int? = null,
+    @SerializedName("issueTimestamp")
+    @Expose var issueTimestamp: Double? = null,
+    @SerializedName("issuer")
+    @Expose var issuer: String? = null,
+    @SerializedName("name")
+    @Expose var name: String? = null,
+    @SerializedName("description")
+    @Expose var description: String? = null,
+    @SerializedName("decimals")
+    @Expose var decimals: Double? = null,
+    @SerializedName("reissuable")
+    @Expose var reissuable: Boolean? = null,
+    @SerializedName("quantity")
+    @Expose var quantity: Double? = null,
+    @SerializedName("minSponsoredAssetFee")
+    @Expose var minSponsoredAssetFee: Any? = null
+) {
     fun append(): String {
-        return "$assetID\n$symbol\n$name\n$description"
+        Log.i("Symbol", "" + name)
+        Log.i("Symbol", "" + assetId)
+        Log.i("Symbol", "" + issuer)
+        Log.i("Symbol", "" + issueTimestamp)
+        Log.i("Symbol", "" + description)
+        Log.i("Symbol", "" + decimals)
+        Log.i("Symbol", "" + reissuable)
+        Log.i("Symbol", "" + quantity)
+        return "$assetId\n$name\n$description"
     }
 }

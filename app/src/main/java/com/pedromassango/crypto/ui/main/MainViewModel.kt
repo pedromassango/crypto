@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.pedromassango.crypto.data.BlockchainStats
 import com.pedromassango.crypto.data.MarketDataApiRepository
 import com.pedromassango.crypto.data.Symbol
+import com.pedromassango.crypto.data.SymbolDetails
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -32,8 +33,8 @@ class MainViewModel(
 
     }
 
-    fun onLoadSymbolDetails(assetId: String): MutableLiveData<Symbol> {
-        return MutableLiveData<Symbol>().apply {
+    fun onLoadSymbolDetails(assetId: String): MutableLiveData<SymbolDetails?> {
+        return MutableLiveData<SymbolDetails?>().apply {
             GlobalScope.launch {
                 try {
                     val result = marketDataApiRepository.getSymbolDetails(assetId)

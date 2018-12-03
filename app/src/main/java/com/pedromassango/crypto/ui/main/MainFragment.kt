@@ -41,7 +41,7 @@ class MainFragment : Fragment() {
         })
         mainViewModel.symbols.observe(this, Observer {
             handleProgress(false)
-            adapter.add(it)
+            //adapter.add(it)
 
             // start loading symbols detail, then update adapter
             loadDetailsAnd(it)
@@ -56,7 +56,7 @@ class MainFragment : Fragment() {
             it.forEach {item ->
                 mainViewModel.onLoadSymbolDetails(item.assetID!!).observe(this, Observer{ it ->
                     it?.let {updatedSymbol ->
-                        adapter.update(updatedSymbol)
+                        adapter.add(updatedSymbol)
                     }
                 })
             }
