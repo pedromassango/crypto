@@ -31,8 +31,8 @@ class Symbol (
     @SerializedName("assetID") var assetID: String? = null,
     var issuer: String = "",
     var issueDate: String = "",
-    var name: String? = null,
-    var description: String = "",
+    @SerializedName("name")  var name: String? = null,
+    @SerializedName("description") var description: String = "",
     var decimals: String = "",
     var reissuable: String = "",
     var quantity: String = ""
