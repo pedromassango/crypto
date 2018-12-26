@@ -1,40 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardCoinView"
     android:layout_width="match_parent"
-    android:layout_marginTop="8dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="2dp">
 
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/top"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#32000000"
-        app:cardCornerRadius="@dimen/defaultRadius"
-        app:cardPreventCornerOverlap="false"
-        app:cardUseCompatPadding="false">
+        android:background="@color/colorDarkGrey">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:padding="16sp"
-            android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_details"
-            style="@style/TextAppearance.AppCompat.Caption"
+        <TextView
+            android:id="@+id/titleAssetId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loading details..."
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="@string/assetid"
+            android:textSize="12sp"
             android:textStyle="bold"
-            app:textAllCaps="true" />
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/assetId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/titleAssetId"
+            app:layout_constraintBottom_toBottomOf="@+id/titleAssetId"/>
+
+        <TextView
+            android:id="@+id/titleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="@string/name"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleIssuer" android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/titleName"
+            app:layout_constraintBottom_toBottomOf="@+id/titleName"/>
+
+        <TextView
+            android:id="@+id/titleIssueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="@string/issue_date"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/titleName"/>
+
+        <TextView
+            android:id="@+id/issueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/titleIssueDate"
+            app:layout_constraintBottom_toBottomOf="@+id/titleIssueDate"/>
+
+        <TextView
+            android:id="@+id/titleIssuer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="@string/issuer"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleAssetId"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/issuer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable" android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/titleIssuer"
+            app:layout_constraintTop_toTopOf="@+id/titleIssuer"/>
+
+        <TextView
+            android:id="@+id/titleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="@string/description"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleDecimals"
+            android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/titleDecimals"/>
 
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/titleDecimals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="@string/decimals"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/titleReissuable"
+            />
+
+        <TextView
+            android:id="@+id/decimals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/titleDecimals"
+            app:layout_constraintBottom_toBottomOf="@+id/titleDecimals"/>
+
+        <TextView
+            android:id="@+id/titleReissuable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="reissuable"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/titleQuantity"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/reissuable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/titleReissuable"
+            app:layout_constraintTop_toTopOf="@+id/titleReissuable"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable" android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/titleQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical|center|end"
+            android:gravity="center_vertical|end"
+            android:textColor="@color/colorWhite"
+            android:text="@string/quantity"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/titleIssueDate"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|start"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/titleReissuable" android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/titleQuantity"
+            app:layout_constraintTop_toTopOf="@+id/titleQuantity"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

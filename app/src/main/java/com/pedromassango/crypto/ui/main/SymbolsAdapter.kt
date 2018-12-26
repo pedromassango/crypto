@@ -13,7 +13,16 @@ import kotlinx.android.synthetic.main.row_item.view.*
 class SymbolHolder(val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(symbol: SymbolDetails) {
         with(view){
-            tv_details.text = symbol.append()
+
+            //issueDate.text = symbol.
+            //assetSymbol.text = symbol.as
+            assetId.text = symbol.assetId
+            name.text = symbol.name
+            issuer.text = symbol.issuer
+            description.text = symbol.description
+            decimals.text = symbol.decimals.toString()
+            reissuable.text = symbol.reissuable.toString()
+            quantity.text = symbol.quantity.toString()
         }
     }
 }

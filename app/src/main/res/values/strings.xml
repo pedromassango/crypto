@@ -6,4 +6,11 @@
     <string name="invert">Invert</string>
     <string name="numeric_digits">01234567890</string>
     <string name="market_price">Market Price (USD)</string>
+    <string name="name">Name</string>
+    <string name="assetid">Asset Id</string>
+    <string name="issue_date">Issue Date</string>
+    <string name="issuer">Issuer</string>
+    <string name="description">Details</string>
+    <string name="decimals">Decimals</string>
+    <string name="quantity">Quantity</string>
 </resources>
