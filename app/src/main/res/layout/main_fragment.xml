@@ -1,65 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main"
-        app:showDividers="middle"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
-
-    <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:cardCornerRadius="0dp"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="#32000000">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:padding="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/relativeLayout1">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/v1"
-                    android:layout_width="wrap_content"
-                    android:text="@string/market_price"
-                    android:layout_height="0dp" app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_market_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/v1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.0"
-                    tools:text="0"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                    app:layout_constraintHorizontal_bias="0.0" android:textColor="@color/colorAccent"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:showDividers="middle"
+    tools:context=".ui.main.MainFragment">
 
     <ProgressBar
-            android:id="@+id/progress_main"
-            android:layout_margin="8dp"
-            android:layout_gravity="end"
-            android:layout_width="40dp"
-            android:layout_height="40dp" android:visibility="invisible" tools:visibility="visible"/>
+        android:id="@+id/progress_main"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" tools:listitem="@layout/row_item"/>
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_item" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
