@@ -13,9 +13,11 @@ import java.util.concurrent.TimeUnit
 object RemoteApiClients{
 
     private val coroutineAdapter = CoroutineCallAdapterFactory()
-    private val gsonConverter = GsonConverterFactory.create(GsonBuilder()
+    private val gsonConverter = GsonConverterFactory.create(
+        GsonBuilder()
         .setLenient()
-        .create())
+        .create()
+    )
     private val okHttClient = OkHttpClient.Builder()
         .readTimeout(20, TimeUnit.SECONDS)
         .connectTimeout(20, TimeUnit.SECONDS)
